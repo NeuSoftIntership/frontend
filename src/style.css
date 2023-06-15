@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+#app {
+
+}
+
+
+html[theme="dark"] {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* 防止图片等被干扰到 */
+img[theme="dark"],
+video[theme="dark"],
+canvas[theme="dark"] {
+    filter: invert(1) hue-rotate(180deg);
+}
