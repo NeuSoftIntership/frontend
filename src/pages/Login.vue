@@ -94,7 +94,7 @@ export default {
   methods: {
     login(){
       this.$router.replace({
-        path: "/Nav"
+        path: "/nav"
       })
     }
   }

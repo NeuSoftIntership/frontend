@@ -25,12 +25,25 @@ export default {
       })
       this.light_status_is_dark = !this.light_status_is_dark
     },
-    change_fold_box_pos(){
-      if(!this.slide_folded){
+    change_fold_box_pos() {
+      if (!this.slide_folded) {
         this.$refs.foldBox.style.left = Math.round(this.$refs.navBox.clientWidth) + "px"
-      }else{
+      } else {
         this.$refs.foldBox.style.left = "0"
       }
+    },
+    history_to_client_home() {
+      this.$router.push({
+        path: "/nav/client-home"
+      });
+    },
+    history_to_client_add2modify(){
+      this.$router.push({
+        path: "/nav/client-add2modify",
+        query:{
+          is_add: true
+        }
+      });
     }
   },
   updated() {
@@ -51,7 +64,7 @@ export default {
   <div class="abs-full">
     <!--  头部  -->
     <div class="row">
-      <div class="col-sm text-center">col-sm</div>
+      <div class="col-sm text-center">东软物流配送管理系统</div>
     </div>
     <div class="my-fold" @click="change_fold_status" ref="foldBox">
       <i v-show="!slide_folded" class="bi bi-box-arrow-left"></i>
@@ -67,16 +80,41 @@ export default {
         <span href="/"
               class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
           <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-          <span class="fs-5 fw-semibold">东软</span>
+          <span class="fs-5 fw-semibold">
+            <figure class="figure">
+              <img src="https://s1.aigei.com/src/img/gif/35/356cd14f647a4b8b86192f9a22d4221a.gif?imageMogr2/auto-orient/thumbnail/!240x240r/gravity/Center/crop/240x240/quality/85/&e=1735488000&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:RGio7mzCFGABC9FzVBImrr0ZowA="
+                   class="figure-img img-fluid rounded" style="height: 50px;">
+              <span class="figure-caption text-end" des="用来描述图像">管理员A</span>
+            </figure>
+          </span>
         </span>
             <ul class="list-unstyled ps-0 list-group">
               <li class="mb-1">
                 <i class="bi bi-house-door"></i>
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                         data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                  Home
+                  客户服务中心
                 </button>
                 <div class="collapse show" id="home-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
+                    <li class="list-group-item"><a @click.prevent="history_to_client_home"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">客户中心主页</a>
+                    </li>
+                    <li class="list-group-item"><a @click.prevent="history_to_client_add2modify"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">添加客户</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <!--水平分割线-->
+              <li class="border-top my-3"></li>
+              <li class="mb-1">
+                <i class="bi bi-brightness-high"></i>
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#allot-collapse" aria-expanded="false">
+                  调度中心
+                </button>
+                <div class="collapse" id="allot-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
                     <li class="list-group-item"><a href="#"
                                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
@@ -95,10 +133,76 @@ export default {
               <li class="mb-1">
                 <i class="bi bi-brightness-high"></i>
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                  Personal
+                        data-bs-toggle="collapse" data-bs-target="#allot-collapse" aria-expanded="false">
+                  分站中心
                 </button>
-                <div class="collapse" id="account-collapse">
+                <div class="collapse" id="allot-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
+                    <li class="list-group-item"><a href="#"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
+                    </li>
+                    <li class="list-group-item"><a href="#"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a>
+                    </li>
+                    <li class="list-group-item"><a href="#"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <!--水平分割线-->
+              <li class="border-top my-3"></li>
+              <li class="mb-1">
+                <i class="bi bi-brightness-high"></i>
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#allot-collapse" aria-expanded="false">
+                  库房管理
+                </button>
+                <div class="collapse" id="allot-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
+                    <li class="list-group-item"><a href="#"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
+                    </li>
+                    <li class="list-group-item"><a href="#"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a>
+                    </li>
+                    <li class="list-group-item"><a href="#"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <!--水平分割线-->
+              <li class="border-top my-3"></li>
+              <li class="mb-1">
+                <i class="bi bi-brightness-high"></i>
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#allot-collapse" aria-expanded="false">
+                  配送中心
+                </button>
+                <div class="collapse" id="allot-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
+                    <li class="list-group-item"><a href="#"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
+                    </li>
+                    <li class="list-group-item"><a href="#"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a>
+                    </li>
+                    <li class="list-group-item"><a href="#"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <!--水平分割线-->
+              <li class="border-top my-3"></li>
+              <li class="mb-1">
+                <i class="bi bi-brightness-high"></i>
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#allot-collapse" aria-expanded="false">
+                  财务中心
+                </button>
+                <div class="collapse" id="allot-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
                     <li class="list-group-item"><a href="#"
                                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
@@ -123,7 +227,7 @@ export default {
       </div>
       <!-- main 主体部分 -->
       <div :class="this.slide_folded?'':'col-sm-9'" class="text-center overflow-y-scroll">
-        content
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -147,7 +251,7 @@ export default {
 
 .abs-full {
   position: absolute;
-  height: 100%;
+  min-height: 100%;
   left: 0;
   top: 0;
   width: 100%;

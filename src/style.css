@@ -21,3 +21,20 @@ video[theme="dark"],
 canvas[theme="dark"] {
     filter: invert(1) hue-rotate(180deg);
 }
+
+._li-quarter>li{
+    width: 25%;
+}
+
+._flex-space-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+._hover-inline-block-show:hover{
+    display: inline-block;
+}
+
+._display-none{
+    display: none;
+}
