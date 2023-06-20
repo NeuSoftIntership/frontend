@@ -1,18 +1,10 @@
 <script>
 import {reactive, ref} from "vue";
+import {OrderStatusMap} from '../../assets/config.js'
 
   export default {
     setup(){
-      const orderStatusMap = {
-        "1": "进行中",
-        "2": "待调整",
-        "3": "待出库",
-        "4": "待分配",
-        "5": "代缴款",
-        "6": "待入库",
-        "7": "缺货中",
-        "8": "出库",
-      }
+      const orderStatusMap = OrderStatusMap
       let clientName = ref(undefined)
       let orders = reactive([])
 

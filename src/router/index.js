@@ -7,6 +7,12 @@ import Add2ModifyClient from "../components/client/Add2ModifyClient.vue";
 import PersonOrder from "../components/client/PersonOrder.vue";
 import OrderDetail from "../components/client/OrderDetail.vue";
 import AddOrder from "../components/client/AddOrder.vue";
+import DispatchHome from "../components/dispatch/DispatchHome.vue";
+import AllotHome from "../components/allot/AllotHome.vue";
+import RepositoryHome from "../components/repository/RepositoryHome.vue";
+import DeliveryHome from "../components/delivery/DeliveryHome.vue";
+import FinanceHome from "../components/finance/FinanceHome.vue";
+import AddDispatchTask from "../components/dispatch/Add2DetailDispatchTask.vue";
 
 const routes = [
     { path: '/', component: Login },
@@ -34,6 +40,36 @@ const routes = [
                 path: 'add-order',
                 component: AddOrder,
                 name:"add-order"
+            },
+            {
+                path: 'dispatch-home',
+                component: DispatchHome,
+                name: 'dispatch-home'
+            },
+            {
+                path: 'allot-home',
+                component: AllotHome,
+                name: 'allot-home'
+            },
+            {
+                path: 'repository-home',
+                component: RepositoryHome,
+                name: 'repository-home'
+            },
+            {
+                path: 'delivery-home',
+                component: DeliveryHome,
+                name: 'delivery-home'
+            },
+            {
+                path: 'finance-home',
+                component: FinanceHome,
+                name: 'finance-home'
+            },
+            {
+                path: 'add2detail-dispatch',
+                component: AddDispatchTask,
+                name: 'add2detail-dispatch'
             }
         ]
     }

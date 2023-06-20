@@ -1,6 +1,30 @@
 <script>
-  export default {
+  import {reactive} from "vue";
+  import {OrderStatusMap} from "../../assets/config.js";
 
+  export default {
+    computed: {
+      OrderStatusMap() {
+        return OrderStatusMap
+      }
+    },
+    setup(){
+      let data = reactive({orderDetail: undefined})
+
+      return{
+        data
+      }
+    },
+    mounted() {
+      this.$fetchWithIpPort('/client/get-order-detail')
+          .then(res => res.json())
+          .then((res) => {
+            console.log(res);
+            this.data.orderDetail = res.data
+          }).catch((e) => {
+        console.log(e)
+      })
+    }
   }
 </script>
 
@@ -12,32 +36,32 @@
       <ul class="list-group list-group-horizontal-md _li-quarter">
         <li class="list-group-item">客户姓名</li>
         <li class="list-group-item">
-          李白
+          {{this.data.orderDetail?.clientName}}
         </li>
         <li class="list-group-item">发票选项</li>
         <li class="list-group-item">
-          需要
+          {{this.data.orderDetail?.billNeed?'需要':'不需要'}}
         </li>
       </ul>
       <ul class="list-group list-group-horizontal _li-quarter">
         <li class="list-group-item">下单日期</li>
-        <li class="list-group-item" v-text="2022">
-
+        <li class="list-group-item">
+          {{ this.data.orderDetail?.orderDate }}
         </li>
         <li class="list-group-item">送货地址</li>
-        <li class="list-group-item">？？？</li>
+        <li class="list-group-item">{{ this.data.orderDetail?.address }}</li>
       </ul>
       <ul class="list-group list-group-horizontal-sm _li-quarter">
         <li class="list-group-item">订单状态</li>
-        <li class="list-group-item">XXX</li>
+        <li class="list-group-item">{{ OrderStatusMap[this.data.orderDetail?.orderStatus] }}</li>
         <li class="list-group-item">收货人</li>
-        <li class="list-group-item">XXX</li>
+        <li class="list-group-item">{{this.data.orderDetail?.receiver}}</li>
       </ul>
       <ul class="list-group list-group-horizontal-md _li-quarter">
         <li class="list-group-item">备注信息</li>
-        <li class="list-group-item">XXX</li>
+        <li class="list-group-item">{{this.data.orderDetail?.remark}}</li>
         <li class="list-group-item">收货人电话</li>
-        <li class="list-group-item">XXX</li>
+        <li class="list-group-item">{{this.data.orderDetail?.phone}}</li>
       </ul>
 
     </div>
@@ -58,41 +82,33 @@
         </thead>
         <tbody>
         <!--商品的名字就是ID，必须是唯一的表示-->
-        <tr v-for="(goods, index) in goods_order_list" :key="goods.name">
+        <tr v-for="(order, index) in data.orderDetail?.goodsMap.order_list" :key="order.name">
           <th scope="row" v-text="index + 1"></th>
           <!--          分类1-->
-          <td>
-            <select class="form-select" aria-label="Default select example" v-model="goods.class1" @change="change_class_or_goods(goods.class1)">
-              <option :value="class1" v-for="(class1) in goodsShowListMap.zero" v-text="class1"></option>
-            </select>
+          <td v-text="order.class1">
+
           </td>
           <!--          分类2-->
-          <td>
-            <select class="form-select" aria-label="Default select example" v-model="goods.class2" @change="change_class_or_goods(goods.class1, goods.class2)">
-              <option :value="class2" v-for="(class2) in goodsShowListMap.one" v-text="class2"></option>
-            </select>
+          <td v-text="order.class2">
+
           </td>
           <!--          具体商品的列表-->
-          <td>
-            <select class="form-select" aria-label="Default select example" v-model="goods.name" @change="change_class_or_goods(goods.class1, goods.class2, goods.name, index)">
-              <option :value="goodsName" v-for="(goodsName) in goodsShowListMap.two" v-text="goodsName"></option>
-            </select>
+          <td v-text="order.name">
+
           </td>
-          <td v-text="goods.price">
+          <td v-text="order.price">
 
           </td>
           <td>
-            <input type="number" class="form-control" value="0" @change="calEachTotal($event, goods)">
+            100
           </td>
-          <td v-text="goods.perTotalPrice"></td>
+          <td v-text="order.perTotalPrice"></td>
         </tr>
         </tbody>
       </table>
-    </div>
 
-    <div>
-      <div class="align-content-end  justify-content-md-end" style="float: right" >
-        <span>总价：XXX</span> <button type="button" class="btn btn-outline-primary me-md-2">确认</button>
+      <div style="float: right">
+        总价：<span v-text="data.orderDetail?.goodsMap.total"></span>
       </div>
     </div>
   </div>

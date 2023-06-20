@@ -11,7 +11,7 @@ import "bootstrap/dist/js/bootstrap.js"
 import 'bootstrap-icons/font/bootstrap-icons.min.css'
 
 const app= createApp(App)
-import fetchWithIpPort from "./assets/config.js"
+import {fetchWithIpPort} from "./assets/config.js"
 // app.config.globalProperties.$myGlobalObject = {};
 // 全局注册自定义的fetch
 app.config.globalProperties.$fetchWithIpPort = fetchWithIpPort

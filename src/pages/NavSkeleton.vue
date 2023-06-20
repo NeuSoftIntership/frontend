@@ -44,6 +44,21 @@ export default {
           is_add: true
         }
       });
+    },
+    history_to_client_dispatch(){
+      this.$router.push({
+        name: "dispatch-home"
+      });
+    },
+    history_to_client_add2detailDispatch(){
+      this.$router.push({
+        name: 'add2detail-dispatch'
+      })
+    },
+    history_to_allot(){
+      this.$router.push({
+        name: 'allot-home'
+      })
     }
   },
   updated() {
@@ -111,19 +126,14 @@ export default {
               <li class="mb-1">
                 <i class="bi bi-brightness-high"></i>
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#allot-collapse" aria-expanded="false">
+                        data-bs-toggle="collapse" data-bs-target="#dispatch-collapse" aria-expanded="false">
                   调度中心
                 </button>
-                <div class="collapse" id="allot-collapse">
+                <div class="collapse" id="dispatch-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
+                    <li class="list-group-item"><a class="link-body-emphasis d-inline-flex text-decoration-none rounded" @click.prevent="history_to_client_dispatch">调度中心</a>
                     </li>
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a>
-                    </li>
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a>
+                    <li class="list-group-item"><a class="link-body-emphasis d-inline-flex text-decoration-none rounded" @click.prevent="history_to_client_add2detailDispatch">新建调度任务</a>
                     </li>
                   </ul>
                 </div>
@@ -138,14 +148,8 @@ export default {
                 </button>
                 <div class="collapse" id="allot-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
-                    </li>
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a>
-                    </li>
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a>
+                    <li class="list-group-item"><a @click.prevent="history_to_allot"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">分站主页</a>
                     </li>
                   </ul>
                 </div>
@@ -155,10 +159,10 @@ export default {
               <li class="mb-1">
                 <i class="bi bi-brightness-high"></i>
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#allot-collapse" aria-expanded="false">
+                        data-bs-toggle="collapse" data-bs-target="#repository-collapse" aria-expanded="false">
                   库房管理
                 </button>
-                <div class="collapse" id="allot-collapse">
+                <div class="collapse" id="repository-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
                     <li class="list-group-item"><a href="#"
                                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
@@ -177,10 +181,10 @@ export default {
               <li class="mb-1">
                 <i class="bi bi-brightness-high"></i>
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#allot-collapse" aria-expanded="false">
+                        data-bs-toggle="collapse" data-bs-target="#delivery-collapse" aria-expanded="false">
                   配送中心
                 </button>
-                <div class="collapse" id="allot-collapse">
+                <div class="collapse" id="delivery-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
                     <li class="list-group-item"><a href="#"
                                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
@@ -199,10 +203,10 @@ export default {
               <li class="mb-1">
                 <i class="bi bi-brightness-high"></i>
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#allot-collapse" aria-expanded="false">
+                        data-bs-toggle="collapse" data-bs-target="#finance-collapse" aria-expanded="false">
                   财务中心
                 </button>
-                <div class="collapse" id="allot-collapse">
+                <div class="collapse" id="finance-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
                     <li class="list-group-item"><a href="#"
                                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>

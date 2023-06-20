@@ -1,5 +1,8 @@
 import fetchMock from 'fetch-mock';
 import Mock from 'mockjs';
+import {generatePhoneNumber} from "./common.js";
+// random 已经过时了，引入报错
+// import { Random as MockRandom } from "mockjs/src/mock/random/index.js";
 
 // 绑定映射关系
 // Mock.mock({
@@ -14,12 +17,7 @@ import Mock from 'mockjs';
 //     }]
 // })
 // 电话号码生成函数
-function generatePhoneNumber() {
-    const areaCode = Math.floor(Math.random() * (999 - 200 + 1)) + 200; // 在200到999之间随机生成区号
-    const firstThree = Math.floor(Math.random() * 1000); // 生成三位数的第一个部分
-    const secondFour = Math.floor(Math.random() * 10000); // 生成四位数的第二个部分
-    return `(${areaCode})${firstThree}-${secondFour}`; // 返回生成的电话号码
-}
+
 
 // 模拟fetch请求
 fetchMock.get('/client/get-client', {
@@ -58,11 +56,11 @@ fetchMock.get('/client/get-client-orders', {
 });
 
 
-function randInt1() {
+function randClass1() {
     return "分级" + Math.floor(Math.random() * 1000)+ "_1"
 }
 
-function randInt2() {
+function randClass2() {
     return "分级" + Math.floor(Math.random() * 1000)+ "_2"
 }
 
@@ -77,11 +75,11 @@ fetchMock.get('/client/get-goods-class', {
         'data|10': [
             // 表示的是第一级别分类
             {
-                'type':randInt1,
+                'type':randClass1,
                 'subList|1-5':[
                     // 二级分类
                     {
-                        'type': randInt2,
+                        'type': randClass2,
                         'subList|1-5': [
                             // 具体的商品
                             {
@@ -95,5 +93,36 @@ fetchMock.get('/client/get-goods-class', {
                 ]
             }
         ]
+    })
+});
+
+// 获取某个订单的详细信息
+fetchMock.get('/client/get-order-detail', {
+    status: 200,
+    body: Mock.mock({
+        "status": true,
+        'data': {
+            "clientName": '@cname',
+            "billNeed|2": true,
+            "orderDate": '@date(yyyy-MM-dd hh:mm:ss)',
+            "address": '@region',
+            'orderStatus|1-8': 1,
+            'receiver': '@cname',
+            'phone': generatePhoneNumber,
+            'remark|10-50': '@cword',
+            "goodsMap": {
+                "order_list|2-10": [
+                    {
+                        name: randGoods,
+                        "price|200-1000": 1,
+                        class1: randClass1,
+                        class2: randClass2,
+                        "buyC|2-20": "",
+                        "perTotalPrice|100-10000": 1,
+                    }
+                ],
+                "total|1000-99999": 0
+            }
+        }
     })
 });
