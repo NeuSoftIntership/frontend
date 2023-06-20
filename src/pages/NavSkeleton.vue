@@ -59,7 +59,7 @@ export default {
       this.$router.push({
         name: 'allot-home'
       })
-    }
+    },
   },
   updated() {
     this.change_fold_box_pos()

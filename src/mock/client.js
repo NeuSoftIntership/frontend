@@ -24,7 +24,7 @@ fetchMock.get('/client/get-client', {
     status: 200,
     body: Mock.mock({
         "status": true,
-        'data|10': [{
+        'data|5-10': [{
             'id|+1': "@id",
             'phone': generatePhoneNumber,
             'name': '@cname',
@@ -45,7 +45,7 @@ fetchMock.get('/client/get-client-orders', {
     status: 200,
     body: Mock.mock({
         "status": true,
-        'data|10': [{
+        'data|5-10': [{
             'id|+1': "@id",
             'address':"@region",
             'receiver': '@cname',
@@ -72,7 +72,7 @@ fetchMock.get('/client/get-goods-class', {
     status: 200,
     body: Mock.mock({
         "status": true,
-        'data|10': [
+        'data|5-10': [
             // 表示的是第一级别分类
             {
                 'type':randClass1,

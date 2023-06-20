@@ -74,7 +74,7 @@ import {OrderStatusMap} from '../../assets/config.js'
           <td>
             <div class="btn-group" role="group" aria-label="Basic outlined example">
               <button type="button" class="btn btn-outline-primary" @click="history_to_details">详细信息</button>
-              <button type="button" class="btn btn-outline-primary" @click="history_to_modify">退货</button>
+              <button type="button" class="btn btn-outline-primary">退货</button>
               <button type="button" class="btn btn-outline-primary">换货</button>
               <button type="button" class="btn btn-outline-primary">取消</button>
             </div>

@@ -11,7 +11,7 @@ export default {
       // client-add2modify
       // /nav/client-orders
       // path: "/nav/add-order"
-      name: "add2detail-dispatch"
+      name: "allot-courier-add2modify"
     });
   }
 }

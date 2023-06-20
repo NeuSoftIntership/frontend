@@ -1,30 +1,27 @@
-<!--调度中心-->
 <script>
 import {reactive} from "vue";
-import {OrderStatusMap} from "../../assets/config.js";
 
 export default {
   setup(){
-    const allot_info_list = reactive([])
-    const orderStatusMap = OrderStatusMap
+    const data  = reactive({courierList: undefined})
 
-    return{
-      allot_info_list,
-      orderStatusMap
+    return {
+      data
     }
   },
-  methods: {
-    history_to_dispatch_detail(){
+  methods:{
+    history_to_courier_add2modify(){
       this.$router.push({
-        name: 'add2detail-dispatch'
-      })
-    }
+        name: "allot-courier-add2modify",
+      });
+    },
   },
-  mounted() {
-    this.$fetchWithIpPort('/dispatch/get-dispatch-info')
+  mounted() { //
+    this.$fetchWithIpPort('/allot/get-allot-courier-list')
         .then(res => res.json())
         .then((res) => {
-          this.allot_info_list.push(...res.data)
+          this.data.courierList = res.data
+          console.log(res.data)
         }).catch((e) => {
       console.log(e)
     })
@@ -33,42 +30,40 @@ export default {
 </script>
 
 <template>
-  <h6>调度中心</h6>
+  <h6>配送员列表</h6>
   <div style="height: 100%">
     <!--  搜索  -->
     <div class="input-group con" style="margin: 40px 0 40px 0">
-      <span style="margin: 10px">选择请求调度日期:</span>
-      <input type="date" style="margin: 0 20px 0 20px"/>
       <input type="text" class="form-control" placeholder="Recipient's username"
              aria-label="Recipient's username with two button addons">
       <button class="btn btn-outline-secondary" type="button">搜索</button>
+      <button class="btn btn-outline-secondary" type="button" @click="history_to_courier_add2modify">新建配送员</button>
     </div>
     <!-- 展示数据的table -->
     <table class="table">
       <thead class="table-secondary">
       <tr>
         <th>序号</th>
-        <th>订单ID</th>
-        <th>送货地址</th>
-        <th>接收人</th>
-        <th>接收人电话</th>
-        <th>订单状态</th>
+        <th>配送员ID</th>
+        <th>电话号码</th>
+        <th>分站</th>
+        <th>姓名</th>
+        <th>入职时间</th>
         <th>操作</th>
       </tr>
       </thead>
       <tbody>
-      <tr v-for="(allot, index) of this.allot_info_list" class="table-primary" :key="allot.id">
+      <tr v-for="(courier, index) of this.data.courierList" class="table-primary" :key="courier.id">
         <td v-text="index + 1"></td>
-        <td>{{ allot.id }}</td>
-        <td>{{ allot.address }}</td>
-        <td>{{ allot.receiver }}</td>
-        <td>{{ allot.phone }}</td>
-        <td>{{orderStatusMap[allot.orderStatus]}}</td>
+        <td>{{ courier.id }}</td>
+        <td>{{ courier.phone }}</td>
+        <td>{{ courier.allot }}</td>
+        <td>{{ courier.name }}</td>
+        <td>{{ courier.enrollTime }}</td>
         <td>
           <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button type="button" class="btn btn-outline-primary" @click="history_to_dispatch_detail">详细信息</button>
-            <button type="button" class="btn btn-outline-primary">执行调整</button>
-            <button type="button" class="btn btn-outline-primary">补货</button>
+            <button type="button" class="btn btn-outline-primary" @click="history_to_courier_add2modify">修改</button>
+            <button type="button" class="btn btn-outline-primary">删除</button>
           </div>
         </td>
       </tr>

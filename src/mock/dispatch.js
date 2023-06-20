@@ -3,7 +3,7 @@ import Mock from 'mockjs';
 import {generatePhoneNumber} from "./common.js";
 
 // 请求调度信息
-fetchMock.get('/client/get-dispatch-info', {
+fetchMock.get('/dispatch/get-dispatch-info', {
     status: 200,
     body: Mock.mock({
         "status": true,

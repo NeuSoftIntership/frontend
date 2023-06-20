@@ -26,6 +26,10 @@ canvas[theme="dark"] {
     width: 25%;
 }
 
+._li-half>li{
+    width: 50%;
+}
+
 ._flex-space-between{
     display: flex;
     justify-content: space-between;
