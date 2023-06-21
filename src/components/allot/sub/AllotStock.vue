@@ -1,5 +1,5 @@
 <script>
-import Order from "../client/Order.vue";
+import Order from "../../client/sub/Order.vue";
 export default {
   components:{
     Order: Order

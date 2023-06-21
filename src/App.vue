@@ -11,7 +11,7 @@ export default {
       // client-add2modify
       // /nav/client-orders
       // path: "/nav/add-order"
-      name: "allot-courier-add2modify"
+      name: "delivery-goods-type-manage"
     });
   }
 }

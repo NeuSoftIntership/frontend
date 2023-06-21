@@ -1,6 +1,6 @@
 <script>
   import {reactive} from "vue";
-  import {OrderStatusMap} from "../../assets/config.js";
+  import {OrderStatusMap} from "../../../assets/config.js";
 
   export default {
     computed: {

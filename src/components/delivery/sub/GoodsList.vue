@@ -1,13 +1,11 @@
 <script>
-
 export default {
 
 }
 </script>
 
 <template>
-  <h5>库房管理</h5>
-  <router-view></router-view>
+<h2>商品列表</h2>
 </template>
 
 <style scoped>

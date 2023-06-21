@@ -3,7 +3,8 @@
 </script>
 
 <template>
-  <h1>财务中心</h1>
+  <h5>财务中心</h5>
+  <router-view></router-view>
 </template>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <script>
-import {OrderStatusMap} from "../../assets/config.js";
+import {OrderStatusMap} from "../../../assets/config.js";
 import {reactive} from "vue";
 
 export default {

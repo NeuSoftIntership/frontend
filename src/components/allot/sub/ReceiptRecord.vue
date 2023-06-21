@@ -1,5 +1,5 @@
 <script>
-import OrderDetail from "../client/OrderDetail.vue";
+import OrderDetail from "../../client/sub/OrderDetail.vue";
 import {reactive} from "vue";
 
 export default {

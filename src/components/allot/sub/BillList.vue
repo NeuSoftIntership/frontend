@@ -1,7 +1,7 @@
 <script>
   // 发票 -> 任务单
   import {reactive} from "vue";
-  import {BillStatusMap, OrderStatusMap} from "../../assets/config.js";
+  import {BillStatusMap, OrderStatusMap} from "../../../assets/config.js";
 
   export default {
     computed: {

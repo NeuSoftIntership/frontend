@@ -34,12 +34,12 @@ export default {
     },
     history_to_client_home() {
       this.$router.push({
-        path: "/nav/client-home"
+        path: "/nav/client-home/client-center"
       });
     },
     history_to_client_add2modify(){
       this.$router.push({
-        path: "/nav/client-add2modify",
+        path: "/nav/client-home/client-add2modify",
         query:{
           is_add: true
         }
@@ -47,7 +47,7 @@ export default {
     },
     history_to_client_dispatch(){
       this.$router.push({
-        name: "dispatch-home"
+        name: "dispatch-center"
       });
     },
     history_to_client_add2detailDispatch(){
@@ -57,9 +57,94 @@ export default {
     },
     history_to_allot(){
       this.$router.push({
-        name: 'allot-home'
+        name: 'allot-center'
       })
     },
+    history_to_repository_home(){
+      this.$router.push({
+        name: "repository-center"
+      });
+    },
+    history_to_rep_request_enter_list(){
+      this.$router.push({
+        name: "enter-rep-list"
+      });
+    },
+    history_to_rep_dispatch_request_list(){
+      this.$router.push({
+        name: "dispatch-request-list"
+      });
+    },
+    history_to_delivery_goods_type_manage(){
+      this.$router.push({
+        name: "delivery-goods-type-manage"
+      });
+    },
+    history_to_delivery_goods_list(){
+      this.$router.push({
+        name: "delivery-goods-list"
+      });
+    },
+    history_to_delivery_goods_offer_merchant_list(){
+      this.$router.push({
+        name: "delivery-goods-offer-merchant-list"
+      });
+    },
+    history_to_delivery_goods_request_list(){
+      this.$router.push({
+        name: "delivery-goods-request-list"
+      });
+    },
+    history_to_delivery_goods_rate(){
+      this.$router.push({
+        name: "delivery-goods-rate-list"
+      });
+    },
+    history_to_delivery_allot_rate(){
+      this.$router.push({
+        name: "delivery-allot-rate"
+      });
+    },
+    history_to_finance_bill_batch(){
+      this.$router.push({
+        name: "finance-bill-batch"
+      });
+    },
+    history_to_finance_goods_offer_merchant_settle(){
+      this.$router.push({
+        name: "finance-goods-offer-merchant-settle"
+      });
+    },
+    history_to_finance_allot_settle(){
+      this.$router.push({
+        name: "finance-allot-settle"
+      });
+    },
+    history_to_oneRoute_finance(){
+      this.$router.push({
+        name: "finance-home"
+      });
+    },
+    history_to_oneRoute_delivery(){
+      this.$router.push({
+        name: "delivery-home"
+      });
+    },
+    history_to_oneRoute_dispatch(){
+      this.$router.push({
+        name: "dispatch-home"
+      });
+    },
+    history_to_oneRoute_allot(){
+      this.$router.push({
+        name: "allot-home"
+      });
+    },
+    history_to_oneRoute_rep(){
+      this.$router.push({
+        name: "repository-home"
+      });
+    }
   },
   updated() {
     this.change_fold_box_pos()
@@ -108,7 +193,7 @@ export default {
                 <i class="bi bi-house-door"></i>
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                         data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                  客户服务中心
+                  客户服务
                 </button>
                 <div class="collapse show" id="home-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
@@ -126,8 +211,8 @@ export default {
               <li class="mb-1">
                 <i class="bi bi-brightness-high"></i>
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#dispatch-collapse" aria-expanded="false">
-                  调度中心
+                        data-bs-toggle="collapse" data-bs-target="#dispatch-collapse" aria-expanded="false" @click="history_to_oneRoute_dispatch">
+                  调度
                 </button>
                 <div class="collapse" id="dispatch-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
@@ -143,8 +228,8 @@ export default {
               <li class="mb-1">
                 <i class="bi bi-brightness-high"></i>
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#allot-collapse" aria-expanded="false">
-                  分站中心
+                        data-bs-toggle="collapse" data-bs-target="#allot-collapse" aria-expanded="false" @click="history_to_oneRoute_allot">
+                  分站
                 </button>
                 <div class="collapse" id="allot-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
@@ -159,19 +244,17 @@ export default {
               <li class="mb-1">
                 <i class="bi bi-brightness-high"></i>
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#repository-collapse" aria-expanded="false">
+                        data-bs-toggle="collapse" data-bs-target="#repository-collapse" aria-expanded="false" @click="history_to_oneRoute_rep">
                   库房管理
                 </button>
                 <div class="collapse" id="repository-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
+                    <li class="list-group-item"><a @click.prevent="history_to_repository_home"
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">库房主页</a>
                     </li>
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a>
+                    <li class="list-group-item"><a @click.prevent="history_to_rep_request_enter_list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">入库列表</a>
                     </li>
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a>
+                    <li class="list-group-item"><a @click.prevent="history_to_rep_dispatch_request_list" class="link-body-emphasis d-inline-flex text-decoration-none rounded">调货请求列表</a>
                     </li>
                   </ul>
                 </div>
@@ -181,20 +264,21 @@ export default {
               <li class="mb-1">
                 <i class="bi bi-brightness-high"></i>
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#delivery-collapse" aria-expanded="false">
+                        data-bs-toggle="collapse" data-bs-target="#delivery-collapse" aria-expanded="false" @click.prevent="history_to_oneRoute_delivery">
                   配送中心
                 </button>
                 <div class="collapse" id="delivery-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
+                    <li class="list-group-item"><a
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded" @click.prevent="history_to_delivery_goods_type_manage">类别管理</a>
                     </li>
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a>
+                    <li class="list-group-item"><a
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded" @click.prevent='history_to_delivery_goods_list'>商品列表</a>
                     </li>
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a>
-                    </li>
+                    <li class="list-group-item"><a class="link-body-emphasis d-inline-flex text-decoration-none rounded" @click.prevent="history_to_delivery_goods_offer_merchant_list">供货商列表</a></li>
+                    <li class="list-group-item"><a class="link-body-emphasis d-inline-flex text-decoration-none rounded" @click.prevent="history_to_delivery_goods_request_list">补货请求列表</a></li>
+                    <li class="list-group-item"><a class="link-body-emphasis d-inline-flex text-decoration-none rounded" @click.prevent="history_to_delivery_goods_rate">订购排行榜</a></li>
+                    <li class="list-group-item"><a class="link-body-emphasis d-inline-flex text-decoration-none rounded" @click.prevent="history_to_delivery_allot_rate">分站排行榜</a></li>
                   </ul>
                 </div>
               </li>
@@ -203,19 +287,19 @@ export default {
               <li class="mb-1">
                 <i class="bi bi-brightness-high"></i>
                 <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#finance-collapse" aria-expanded="false">
+                        data-bs-toggle="collapse" data-bs-target="#finance-collapse" aria-expanded="false" @click="history_to_oneRoute_finance">
                   财务中心
                 </button>
                 <div class="collapse" id="finance-collapse">
                   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small list-group">
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
+                    <li class="list-group-item"><a
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded" @click.prevent="history_to_finance_bill_batch">发票批次</a>
                     </li>
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a>
+                    <li class="list-group-item"><a
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded" @click.prevent="history_to_finance_goods_offer_merchant_settle">供货商结算</a>
                     </li>
-                    <li class="list-group-item"><a href="#"
-                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a>
+                    <li class="list-group-item"><a
+                                                   class="link-body-emphasis d-inline-flex text-decoration-none rounded" @click.prevent="history_to_finance_allot_settle">分站结算</a>
                     </li>
                   </ul>
                 </div>

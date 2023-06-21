@@ -21,7 +21,11 @@ const billStatusMap = {
     "2": "已完成",
 }
 
-export  {fetchWithIpPort, orderStatusMap as OrderStatusMap, billStatusMap as BillStatusMap}
+const goodsRequestEnterStatus = {
+    '1': "待入库"
+}
+
+export  {fetchWithIpPort, orderStatusMap as OrderStatusMap, billStatusMap as BillStatusMap, goodsRequestEnterStatus as GoodsRequestEnterStatus}
 // 示例使用：
 const result = await fetchWithIpPort('/client/get-client',"","");
 console.log("???", result)

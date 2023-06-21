@@ -6,7 +6,9 @@ export default {
 </script>
 
 <template>
-  <h1>配送中心</h1>
+  <h5>配送中心</h5>
+  <!--二级路由-->
+  <router-view></router-view>
 </template>
 
 <style scoped>
