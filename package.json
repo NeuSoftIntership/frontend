@@ -13,6 +13,7 @@
     "bootstrap-icons": "^1.10.5",
     "fetch-mock": "^9.11.0",
     "mockjs": "^1.1.0",
+    "nanoid": "^4.0.2",
     "vue": "^3.2.47",
     "vue-router": "^4.2.2",
     "vue-sweetalert2": "^5.0.5"

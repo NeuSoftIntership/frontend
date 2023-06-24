@@ -68,3 +68,5 @@ fetchMock.get('/allot/get-allot-courier-list', {
         }]
     })
 });
+
+export {randStation}

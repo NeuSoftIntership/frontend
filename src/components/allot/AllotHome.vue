@@ -1,6 +1,6 @@
 <script>
 
- export default {///allot/get-client-orders
+ export default {
 
  }
 </script>

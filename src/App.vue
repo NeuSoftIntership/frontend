@@ -1,17 +1,11 @@
 <script>
-import Login from "./pages/Login.vue";
-import NavSkeleton from "./pages/NavSkeleton.vue";
 export default {
   created() {
     // this.$router.replace({
     //   path: "/"
     // })
     this.$router.push({
-      // client-home
-      // client-add2modify
-      // /nav/client-orders
-      // path: "/nav/add-order"
-      name: "delivery-goods-type-manage"
+      name: "finance-allot-settle"
     });
   }
 }

@@ -25,7 +25,15 @@ const goodsRequestEnterStatus = {
     '1': "待入库"
 }
 
-export  {fetchWithIpPort, orderStatusMap as OrderStatusMap, billStatusMap as BillStatusMap, goodsRequestEnterStatus as GoodsRequestEnterStatus}
+const billBatchStatus = {
+    '1': "为领用",
+    '2': "已领用",
+    '3': "已退回",
+    '4': "已作废",
+}
+
+
+export  {fetchWithIpPort, orderStatusMap as OrderStatusMap, billStatusMap as BillStatusMap, goodsRequestEnterStatus as GoodsRequestEnterStatus, billBatchStatus as BillBatchStatus}
 // 示例使用：
 const result = await fetchWithIpPort('/client/get-client',"","");
 console.log("???", result)

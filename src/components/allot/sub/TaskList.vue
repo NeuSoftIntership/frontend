@@ -18,7 +18,7 @@ export default {
   methods:{// dispatch-task
     history_to_dispatch_task(){
       this.$router.push({
-        name: "dispatch-task",
+        name: "allot--dispatch-task",
       });
     },
     history_to_dispatch_detail(){

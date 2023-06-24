@@ -39,6 +39,10 @@ import DispatchHome from "../components/dispatch/DispatchHome.vue";
 import AllotCenter from "../components/allot/sub/AllotCenter.vue";
 import ClientCenter from "../components/client/sub/ClientCenter.vue";
 import RepositoryCenter from "../components/repository/sub/RepositoryCenter.vue";
+import Add2ModifyGoods from "../components/delivery/sub/Add2ModifyGoods.vue";
+import Add2ModifyMerchant from "../components/delivery/sub/Add2ModifyMerchant.vue";
+import GoodsRequestDetail from "../components/delivery/sub/GoodsRequestDetail.vue";
+import GoodsOfferMerchantSettleDetail from "../components/finance/sub/GoodsOfferMerchantSettleDetail.vue";
 
 const routes = [
     {path: '/', component: Login},
@@ -116,6 +120,11 @@ const routes = [
                         name: 'allot-task-list'
                     },
                     {
+                        path: 'allot--dispatch-task',
+                        component: DispatchTask,
+                        name: 'allot--dispatch-task'
+                    },
+                    {
                         path: 'allot-dispatch-task-detail',
                         component: TaskDispatchDetail,
                         name: 'allot-dispatch-task-detail'
@@ -179,6 +188,21 @@ const routes = [
                         component: GoodsRequestList,
                         name: 'delivery-goods-request-list',
                     },
+                    {
+                        path: 'delivery-goods-add2modify',
+                        component: Add2ModifyGoods,
+                        name: 'delivery-goods-add2modify',
+                    },
+                    {
+                        path: 'delivery-goods-add2modify-merchant',
+                        component: Add2ModifyMerchant,
+                        name: 'delivery-goods-add2modify-merchant',
+                    },
+                    {
+                        path: 'delivery-goods-request-detail',
+                        component: GoodsRequestDetail,
+                        name: 'delivery-goods-request-detail',
+                    },
                 ]
             },
             {
@@ -200,6 +224,11 @@ const routes = [
                         path: 'finance-goods-offer-merchant-settle',
                         component: GoodsOfferMerchantSettle,
                         name: 'finance-goods-offer-merchant-settle',
+                    },
+                    {
+                        path: 'finance-goods-offer-merchant-detail',
+                        component: GoodsOfferMerchantSettleDetail,
+                        name: 'finance-goods-offer-merchant-detail',
                     },
                 ]
             },

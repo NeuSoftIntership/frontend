@@ -126,3 +126,6 @@ fetchMock.get('/client/get-order-detail', {
         }
     })
 });
+
+
+export {randGoods, randClass1, randClass2}
