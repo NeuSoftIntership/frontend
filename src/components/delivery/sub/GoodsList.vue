@@ -13,7 +13,7 @@ export default {
       this.$router.push({
         name: 'delivery-goods-add2modify'
       })
-    }
+    },
   },
   mounted() {
     this.$fetchWithIpPort('/delivery/get-goods-list')
@@ -59,7 +59,7 @@ export default {
           </div>
           <div class="col">
             <div class="p-3">
-              <button class="btn btn-outline-secondary" type="button">新建商品</button>
+              <button class="btn btn-outline-secondary" type="button" @click="showGoodsDetail">新建商品</button>
             </div>
           </div>
         </div>

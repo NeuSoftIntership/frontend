@@ -44,7 +44,7 @@ export default {
           </div>
           <div class="col">
             <div class="p-3">
-              <button class="btn btn-outline-secondary" type="button">新建供货商</button>
+              <button class="btn btn-outline-secondary" type="button" @click="history_to_merchant_detail">新建供货商</button>
             </div>
           </div>
         </div>
