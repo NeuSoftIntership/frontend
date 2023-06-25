@@ -22,7 +22,9 @@ export default {
   },
   methods: {
     history_to_dispatch_request_detail() {
-
+      this.$router.push({
+        name: 'rep-dispatch-request-detail'
+      })
     }
   },
   components: {Divide},

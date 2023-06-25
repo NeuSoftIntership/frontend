@@ -10,6 +10,13 @@ export default {
       data
     }
   },
+  methods:{
+    showGoodsRequestDetail(){
+      this.$router.push({
+        name: 'delivery-goods-request-detail'
+      })
+    }
+  },
   computed: {
     GoodsRequestEnterStatus() {
       return GoodsRequestEnterStatus
@@ -65,7 +72,7 @@ export default {
           <td>{{ GoodsRequestEnterStatus[goodsRequest.requestStatus] }}</td>
           <td>
             <div class="btn-group" role="group" aria-label="Basic outlined example">
-              <button type="button" class="btn btn-outline-primary" @click="showGoodsDetail">详细信息</button>
+              <button type="button" class="btn btn-outline-primary" @click="showGoodsRequestDetail">详细信息</button>
               <button type="button" class="btn btn-outline-primary">发送补货请求</button>
             </div>
           </td>

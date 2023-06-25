@@ -19,7 +19,7 @@ export default {
       <option>1111</option>
     </datalist>
     <span class="input-group-text" id="basic-addon1">调拨分站</span>
-    <input type="text" class="form-control" list="class1" placeholder="Username" aria-label="Username"
+    <input type="text" class="form-control" list="class1" placeholder="请输入站" aria-label="Username"
            aria-describedby="basic-addon1">
 
     <datalist id="class2">
