@@ -1,7 +1,7 @@
 // 对应的是库房
 import fetchMock from "fetch-mock";
 import Mock from "mockjs";
-import {generatePhoneNumber, getRandomChinese} from "./common.js";
+import {getRandomChinese} from "./common.js";
 
 function randGoods(){
     return '商品_' + getRandomChinese(2)

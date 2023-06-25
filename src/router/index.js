@@ -267,9 +267,17 @@ const routes = [
         ]
     }
 ]
-
-export default createRouter({
+const router = createRouter({
     // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
     history: createWebHashHistory(),
     routes, // `routes: routes` 的缩写
 })
+
+// 全局路由守卫
+// 用来实现权限的管理
+router.beforeEach((to,from,next)=>{
+    console.log("前置路由守卫，用来实现权限管理",to, from)
+    next() // 放行
+})
+
+export default router
