@@ -45,7 +45,7 @@ export default {
 </script>
 
 <template>
-  <div style="height: 100%">
+  <div>
     <!--  搜索  -->
     <div class="input-group con" style="margin: 40px 0 40px 0">
       <input type="text" class="form-control" placeholder="Recipient's username"

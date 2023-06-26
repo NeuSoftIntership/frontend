@@ -7,6 +7,15 @@ export default {
     this.$router.push({
       name: "finance-allot-settle"
     });
+  },
+  mounted() {
+    (() => {
+      'use strict'
+      const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.forEach(tooltipTriggerEl => {
+        new bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    })()
   }
 }
 </script>

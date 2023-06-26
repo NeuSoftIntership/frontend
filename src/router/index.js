@@ -51,6 +51,7 @@ const routes = [
         children: [
             {
                 path: 'client-home',
+                name:'client-home',
                 component: ClientHome,
                 children: [
                     {

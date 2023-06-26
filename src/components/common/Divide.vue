@@ -11,7 +11,7 @@
       }
     },
     mounted() {
-      if(this.dirIsV == 'true'){
+      if(this.dirIsV === 'true'){
         this.$refs.divide.style.margin = `${this.distance} 0px ${this.distance} 0px`
       }else{
         this.$refs.divide.style.margin = `0px ${this.distance} 0px ${this.distance}`
